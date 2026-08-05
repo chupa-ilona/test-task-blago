@@ -10,5 +10,5 @@ public class TransactionDto {
     private BigDecimal amount;
     private String description;
     private LocalDate transactionDate;
-    private String categoryName;
+    private Long categoryId;
 }

@@ -10,6 +10,8 @@ import spring.test_task.entity.Transaction;
 
 @Mapper(config = spring.test_task.config.MapperConfig.class)
 public interface TransactionMapper {
+
+    @Mapping(target = "categoryId", source = "category.id")
     TransactionDto toDto(Transaction transaction);
 
     @Mapping(target = "id", ignore = true)
@@ -17,8 +19,6 @@ public interface TransactionMapper {
     @Mapping(target = "deleted", ignore = true)
     @Mapping(target = "category", source = "category")
     Transaction toEntity(CreateTransactionRequestDto request, Category category);
-
-    Transaction toEntity(TransactionDto dto);
 
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "createdAt", ignore = true)
