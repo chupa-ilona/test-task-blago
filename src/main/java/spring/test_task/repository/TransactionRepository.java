@@ -1,6 +1,6 @@
 package spring.test_task.repository;
 
-import org.hibernate.Transaction;
+import spring.test_task.entity.Transaction;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
