@@ -9,7 +9,7 @@ import java.time.LocalDate;
 @Data
 public class CreateTransactionRequestDto {
     @NotBlank(message = "Description cannot be blank")
-    @Size(max = 255)
+    @Size(max = 250)
     private String description;
 
     @Positive(message = "Amount must be positive")
