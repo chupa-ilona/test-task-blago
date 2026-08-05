@@ -46,5 +46,6 @@ public class Transaction {
     @CreationTimestamp
     private LocalDateTime createdAt;
 
+    @Column(nullable = false)
     private boolean isDeleted;
 }

@@ -20,15 +20,20 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Object> handleGlobalException(final Exception ex) {
-        ex.printStackTrace();
         return new ResponseEntity<>("An unexpected error occurred",
                 HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     @ExceptionHandler(EntityNotFoundException.class)
     public ResponseEntity<Object> handleEntityNotFoundException(final EntityNotFoundException ex) {
-        return new ResponseEntity<>("Entity not found exception occurred",
+        return new ResponseEntity<>(ex.getMessage(),
                 HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(DuplicateEntityException.class)
+    public ResponseEntity<Object> handleDuplicateEntityException(final DuplicateEntityException ex) {
+        return new ResponseEntity<>(ex.getMessage(),
+                HttpStatus.CONFLICT);
     }
 
     @Override
