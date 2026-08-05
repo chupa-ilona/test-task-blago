@@ -1,9 +1,8 @@
 package spring.test_task.dto;
 
-import lombok.Data;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import lombok.Data;
 
 @Data
 public class TransactionDto {
@@ -11,5 +10,5 @@ public class TransactionDto {
     private BigDecimal amount;
     private String description;
     private LocalDate transactionDate;
-    private String categoryName;
+    private Long categoryId;
 }

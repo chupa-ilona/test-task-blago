@@ -15,7 +15,6 @@ import spring.test_task.mapper.TransactionMapper;
 import spring.test_task.repository.CategoryRepository;
 import spring.test_task.repository.TransactionRepository;
 import spring.test_task.service.TransactionService;
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -55,7 +54,8 @@ public class TransactionServiceImpl implements TransactionService {
         Transaction transaction = transactionRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Transaction not found with id: " + id));
         Category category = categoryRepository.findById(request.getCategoryId())
-                .orElseThrow(() -> new EntityNotFoundException("Category not found with id: " + request.getCategoryId()));
+                .orElseThrow(() -> new EntityNotFoundException("Category not found with id: "
+                        + request.getCategoryId()));
 
         transactionMapper.updateEntity(request, category, transaction);
         return transactionMapper.toDto(transactionRepository.save(transaction));

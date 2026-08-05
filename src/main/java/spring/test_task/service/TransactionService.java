@@ -6,13 +6,11 @@ import spring.test_task.dto.CreateTransactionRequestDto;
 import spring.test_task.dto.TransactionDto;
 import spring.test_task.dto.TransactionFilterDto;
 
-import java.util.List;
-
 public interface TransactionService {
 
     TransactionDto createTransaction(CreateTransactionRequestDto request);
 
-    public Page<TransactionDto> getAllTransactions(TransactionFilterDto filter, Pageable pageable);
+    Page<TransactionDto> getAllTransactions(TransactionFilterDto filter, Pageable pageable);
 
     TransactionDto getTransactionById(Long id);
 
