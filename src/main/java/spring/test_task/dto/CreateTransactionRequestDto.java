@@ -1,10 +1,9 @@
 package spring.test_task.dto;
 
 import jakarta.validation.constraints.*;
-import lombok.Data;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import lombok.Data;
 
 @Data
 public class CreateTransactionRequestDto {

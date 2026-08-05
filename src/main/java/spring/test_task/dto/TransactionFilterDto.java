@@ -1,8 +1,8 @@
 package spring.test_task.dto;
 
+import java.time.LocalDate;
 import lombok.Data;
 import spring.test_task.entity.CategoryType;
-import java.time.LocalDate;
 
 @Data
 public class TransactionFilterDto {

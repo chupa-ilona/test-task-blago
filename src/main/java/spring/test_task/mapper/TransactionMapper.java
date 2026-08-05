@@ -24,6 +24,7 @@ public interface TransactionMapper {
     @Mapping(target = "createdAt", ignore = true)
     @Mapping(target = "deleted", ignore = true)
     @Mapping(target = "category", source = "category")
-    void updateEntity(CreateTransactionRequestDto request, Category category, @MappingTarget Transaction transaction);
+    void updateEntity(CreateTransactionRequestDto request, Category category
+            , @MappingTarget Transaction transaction);
 
 }
