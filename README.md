@@ -9,7 +9,7 @@
 - Database Migrations: Liquibase  
 - Mapping & Boilerplate: MapStruct (1.5.5.Final), Lombok 
 - Validation: Spring Boot Validation
-- 
+
 # How to Run Locally
 1. ```bash  
     git clone https://github.com/chupa-ilona/test-task-blago.git
