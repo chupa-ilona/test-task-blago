@@ -58,7 +58,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"name\": \"Подорожі\",\r\n  \"type\": \"EXPENSE\"\r\n}",
+              "raw": "{\r\n  \"name\": \"Продукти\",\r\n  \"type\": \"EXPENSE\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -149,7 +149,7 @@
               "raw": "{\r\n  \"name\": \"Подорожі\",\r\n  \"type\": \"EXPENSE\"\r\n}"
             },
             "url": {
-              "raw": "http://localhost:8084/api/transactions",
+              "raw": "http://localhost:8084/api/transactions?sort=amount,desc",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -158,6 +158,13 @@
               "path": [
                 "api",
                 "transactions"
+              ],
+              "query": [
+                {
+                  "key": "sort",
+                  "value": "amount,desc",
+                  "type": "text"
+                }
               ]
             }
           },
@@ -191,7 +198,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"description\": \"Італія\",\r\n  \"amount\": 450000.50,\r\n  \"transactionDate\": \"2026-08-05\",\r\n  \"categoryId\": 5\r\n}",
+              "raw": "{\r\n  \"description\": \"Сільпо\",\r\n  \"amount\": 800.50,\r\n  \"transactionDate\": \"2026-08-05\",\r\n  \"categoryId\": 6\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -214,7 +221,7 @@
           "response": []
         },
         {
-          "name": "New Request",
+          "name": "update transaction",
           "request": {
             "method": "PUT",
             "header": [],
@@ -244,7 +251,7 @@
           "response": []
         },
         {
-          "name": "New Request",
+          "name": "delete by id",
           "request": {
             "method": "DELETE",
             "header": [],
@@ -269,6 +276,37 @@
           "response": []
         }
       ]
+    },
+    {
+      "name": "month report",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8084/api/reports/monthly?year=2026&month=8",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8084",
+          "path": [
+            "api",
+            "reports",
+            "monthly"
+          ],
+          "query": [
+            {
+              "key": "year",
+              "value": "2026"
+            },
+            {
+              "key": "month",
+              "value": "8"
+            }
+          ]
+        }
+      },
+      "response": []
     }
   ]
 }
