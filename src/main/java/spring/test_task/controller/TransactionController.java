@@ -1,5 +1,7 @@
 package spring.test_task.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -21,6 +23,8 @@ import spring.test_task.dto.TransactionDto;
 import spring.test_task.dto.TransactionFilterDto;
 import spring.test_task.service.TransactionService;
 
+@Tag(name = "Transaction management",
+        description = "Endpoints for managing incomes and expenses")
 @RestController
 @RequestMapping("/api/transactions")
 @RequiredArgsConstructor
@@ -30,11 +34,16 @@ public class TransactionController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
+    @Operation(summary = "Create a new transaction",
+            description = "Adds a new income or expense record linked to an existing category.")
     public TransactionDto createTransaction(@RequestBody @Valid CreateTransactionRequestDto request) {
         return transactionService.createTransaction(request);
     }
 
     @GetMapping
+    @Operation(summary = "Get all transactions",
+            description = "Retrieves a paginated list of transactions. "
+                    + "Supports filtering by category, type, and date range.")
     public Page<TransactionDto> getAllTransactions(
             @ModelAttribute TransactionFilterDto filter,
             @PageableDefault(size = 20) Pageable pageable) {
@@ -42,18 +51,25 @@ public class TransactionController {
     }
 
     @GetMapping("/{id}")
+    @Operation(summary = "Get transaction by ID",
+            description = "Retrieves a specific transaction record by its ID.")
     public TransactionDto getTransactionById(@PathVariable Long id) {
         return transactionService.getTransactionById(id);
     }
 
     @PutMapping("/{id}")
+    @Operation(summary = "Update transaction",
+            description = "Updates an existing transaction record by its ID.")
     public TransactionDto updateTransaction(@PathVariable Long id,
                                             @RequestBody @Valid CreateTransactionRequestDto request) {
         return transactionService.updateTransaction(id, request);
     }
 
-    @ResponseStatus(HttpStatus.NO_CONTENT)
+
     @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @Operation(summary = "Delete transaction",
+            description = "Soft deletes a transaction by its ID.")
     public void deleteTransaction(@PathVariable Long id) {
         transactionService.deleteTransaction(id);
     }
